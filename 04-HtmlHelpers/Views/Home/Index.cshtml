@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="/Home/Index">Index sayfasına git</a>
+@Html.ActionLink("Index sayfasına git","Index")
+<br />
+@Html.ActionLink("Default Indexe git","Index","Default")
+<br />
+
+@Html.ActionLink("Index2 ye git","Index2",null,new { style = "color : red"})
+
+
+<style>
+    .myStyle{
+        color : white;
+    }
+
+    .myStyle2{
+        background-color : tomato;
+    }
+</style>
+
+@Html.ActionLink("Index2 ye git", "Index2", null, new { @class = "myStyle myStyle2"})
+@Html.ActionLink("Index2 ye git", "Index2", null, new { @class = "btn btn-success"})
+
+
+<br />
+
+@Html.TextBox("ad", "Furkan")
+<br />
+@Html.TextArea("adres","",5,10,new { @class = "form input"})
+<br />
+
+<h3>Hangi programlama dillerini biliyorsunuz?</h3>
+@Html.CheckBox("dil") C# <br />
+@Html.CheckBox("dil") Java <br />
+@Html.CheckBox("dil") C++ <br />
+
+<hr />
+
+<h3>Cinsiyet</h3>
+@Html.RadioButton("cinsiyet","",true) Kadın <br />
+@Html.RadioButton("cinsiyet","",false) Erkek <br />
+@Html.RadioButton("cinsiyet","",false) Belirtmek İstemiyorum <br />
+                                                             
+<hr />
+
+@{ 
+    List<SelectListItem> sehirler = new List<SelectListItem>();
+    sehirler.Add(new SelectListItem() { Text = "İstanbul", Value = "34" });
+    sehirler.Add(new SelectListItem() { Text = "Isparta", Value = "32" });
+    sehirler.Add(new SelectListItem() { Text = "Bingöl", Value = "12" });
+    sehirler.Add(new SelectListItem() { Text = "Ankara", Value = "06" });
+}
+
+@Html.DropDownList("sehirler",sehirler)
+
+<hr />
+@Html.Label("deneme")
+<hr />
+
+@Html.ListBox("cities",sehirler)
+
+<hr />
+
+@using(Html.BeginForm("Index","Home",FormMethod.Post))
+{
+    @Html.TextBox("Ad")
+}
+
+
+<form action="/Home/Index" method="post">
+    <input type="text" name="ad"/>
+</form>

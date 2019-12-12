@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*Yorum Satırı*@
+
+@{ 
+    string name = "Furkan";
+    string surname = "TAŞ";
+}
+
+<span>@name</span>
+<br />
+<span>@surname</span>
+<hr />
+@name             @surname
+<hr />
+@name + " " + @surname
+<hr />
+@(name + " " + surname)
+<hr />
+@{ 
+    string fullname = name + " " + surname;
+}
+@fullname
+<hr />
+@{ 
+    string link = "http://www.google.com";
+}
+
+<a href="@link">Linklerce</a>
+
+<hr />
+
+@{ 
+    List<string> trainer = new List<string>()
+    {
+        "Gizem","Akın","Sema","Mehmet","Ümit","Hatice","Duygu","Tamer"
+    };
+    foreach (var item in trainer)
+    {
+        @item@:
+    }
+
+}
+
+<hr />
+
+@foreach (var item in trainer)
+{
+    @item
+    <br />
+}
+
+<hr />
+
+@{ 
+    string ad = "O Zaman Dans";
+}
+
+@if (ad.StartsWith("O"))
+{
+    <strong> O ile başlıyor</strong>
+}
+else
+{
+    <i>O ile başlamıyor</i>
+}
+
+
+<hr />
+
+<ul>
+    @for (int i = 0; i < 11; i++)
+    {
+        <li>@i</li>     
+    }
+</ul>
+
+<hr />
+
+@*Sınıfınızda ki arkadaşlarınızı bir bold bir italik olacak şekilde listeleyiniz*@
+
+
+@{ 
+    List<string> arkadaslar = new List<string>()
+    {
+        "Ümit","Esra","Berna","Semih",
+    };
+}
+
+@for (int i = 0; i < arkadaslar.Count; i++)
+{
+    if (i%2 == 0)
+    {
+        <strong>@arkadaslar[i]</strong>
+    }
+    else
+    {
+        <i>@arkadaslar[i]</i>
+    }
+}
+
+@{ 
+    string firstName = "Furkan";
+    string lastName = "TAŞ";
+    int age = 24;
+}
+
+<input type="text" name="ad" value="@firstName" />
+<br />
+<input type="text" name="soyad" value="@lastName" />
+<br />
+<input type="text" name="yas" value="@age" />
+
+<hr />
+
+<a href="Home/Index2">Index2 sayfasına git</a>
+<hr />
+<a href="/Home/Index2">Index2 sayfasına git</a>
+<hr />
+<a href="Index2">Index2 sayfasına git</a>
+<hr />
+<a href="/Default/About">Index2 sayfasına git</a>
+
+
+
+
+
+
+
+
+
+
+
